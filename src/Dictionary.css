@@ -1,3 +1,32 @@
-.Dictionary {
+/* Dictionary.css */
 
+.Dictionary {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #eaf5e3; /* same pale green */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.Dictionary form {
+  margin-bottom: 20px;
+}
+
+.Dictionary input[type="search"] {
+  width: 50%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid #f8bbd0; /* baby pink border */
+  border-radius: 8px;
+  outline: none;
+  background-color: #ffffff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Dictionary input[type="search"]:focus {
+  border-color: #c2185b; /* deeper pink for contrast */
+  box-shadow: 0 0 6px rgba(194, 24, 91, 0.3);
 }
