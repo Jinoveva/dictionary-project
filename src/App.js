@@ -15,6 +15,7 @@ function App() {
             <a
               href="https://www.shecodes.io/graduates/122713-jinoveva-lopes"
               target="_blank"
+              rel="noreferrer"
             >
               Jinoveva {""}
             </a>
@@ -22,11 +23,16 @@ function App() {
             <a
               href="https://github.com/Jinoveva/dictionary-project"
               target="_blank"
+              rel="noreferrer"
             >
               Github
             </a>
             {""} and {""}
-            <a href="https://jinos-dictionary-app.netlify.app/" target="_blank">
+            <a
+              href="https://jinos-dictionary-app.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Netlify
             </a>
           </footer>
