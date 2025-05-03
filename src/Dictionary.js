@@ -5,7 +5,7 @@ import Results from "./Results";
 import Photos from "./Photos";
 
 export default function Dictionary() {
-  const [keyword, setKeyword] = useState("sunset"); // Optional: set default word
+  const [keyword, setKeyword] = useState(""); // Optional: set default word
   const [results, setResults] = useState(null);
   const [photos, setPhotos] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -36,12 +36,10 @@ export default function Dictionary() {
     setKeyword(event.target.value);
   }
 
-  useEffect(() => {
-    if (!loaded) {
-      setLoaded(true);
-      search(); // No event, just initial load
-    }
-  }, [loaded]);
+useEffect(() => {
+  setLoaded(true); // remove search() from here
+}, []);
+
 
   return (
     <div className="Dictionary">
