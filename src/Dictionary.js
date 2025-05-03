@@ -1,26 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dictionary.css";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 
 export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
-  let [results, setResults] = useState(null);
+  const [keyword, setKeyword] = useState("sunset"); // Optional: set default word
+  const [results, setResults] = useState(null);
+  const [photos, setPhotos] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
-  function handleResponse(response) {
+  function handleDictionaryResponse(response) {
     setResults(response.data[0]);
   }
 
-  function search(event) {
-    event.preventDefault();
+  function handlePexelsResponse(response) {
+    setPhotos(response.data.photos);
+  }
 
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    axios.get(apiUrl).then(handleResponse);
+  function search(event) {
+    if (event) event.preventDefault();
+
+    const dictionaryApiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    axios.get(dictionaryApiUrl).then(handleDictionaryResponse);
+
+    const pexelsApiKey =
+      "GoVCn58Aezl9vwfqH0G0TngesLn6uP89oZfWs0y2kSL3u5CA9Gt9dcB2";
+    const pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    const headers = { Authorization: pexelsApiKey };
+
+    axios.get(pexelsApiUrl, { headers }).then(handlePexelsResponse);
   }
 
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
+
+  useEffect(() => {
+    if (!loaded) {
+      setLoaded(true);
+      search(); // No event, just initial load
+    }
+  }, [loaded]);
 
   return (
     <div className="Dictionary">
@@ -31,9 +52,10 @@ export default function Dictionary() {
           placeholder="Search for a word"
         />
         <input type="submit" value="Search" className="search-button" />
-        <p className='prompt-text'>What word do you want to look up?</p>
+        <p className="prompt-text">What word do you want to look up?</p>
       </form>
       <Results results={results} />
+      <Photos photos={photos} />
     </div>
   );
 }
