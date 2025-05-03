@@ -30,3 +30,22 @@
   border-color: #c2185b; /* deeper pink for contrast */
   box-shadow: 0 0 6px rgba(194, 24, 91, 0.3);
 }
+
+.search-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #f8bbd0; /* baby pink */
+  color: #333;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: #c2185b; /* deeper pink */
+  color: white;
+  transform: scale(1.05);
+}
+
