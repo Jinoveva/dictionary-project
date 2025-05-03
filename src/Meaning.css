@@ -35,3 +35,13 @@
   padding: 8px;
   border-radius: 6px;
 }
+
+  .synonyms-text{
+   font-size: 0.95rem;
+  color: #5a823f; /* deeper pink for contrast */
+  font-style: italic;
+  margin-top: 8px;
+  background-color: #f3fbf0; /* soft pink background */
+  padding: 8px;
+  border-radius: 6px;
+} 
