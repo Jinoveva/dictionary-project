@@ -8,7 +8,6 @@ export default function Dictionary() {
   const [keyword, setKeyword] = useState(""); // Optional: set default word
   const [results, setResults] = useState(null);
   const [photos, setPhotos] = useState(null);
-  const [loaded, setLoaded] = useState(false);
 
   function handleDictionaryResponse(response) {
     setResults(response.data[0]);
@@ -36,10 +35,7 @@ export default function Dictionary() {
     setKeyword(event.target.value);
   }
 
-useEffect(() => {
-  setLoaded(true); // remove search() from here
-}, []);
-
+  useEffect(() => {}, []);
 
   return (
     <div className="Dictionary">
