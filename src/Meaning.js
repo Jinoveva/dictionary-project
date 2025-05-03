@@ -16,10 +16,7 @@ export default function Meaning(props) {
               </p>
             )}
         <Synonyms synonyms={definition.synonyms}/>
-           {/*<p className="synonyms-text">
-              <strong>Synonyms: </strong>
-              {props.meaning.synonyms.join(", ")}
-            </p> */}
+          
           </div>
         );
       })}
