@@ -29,7 +29,7 @@ function App() {
             </a>
             {""} and {""}
             <a
-              href="https://jinos-dictionary-app.netlify.app/"
+              href="https://jinos-dictionary-project.netlify.app/"
               target="_blank"
               rel="noreferrer"
             >
